@@ -144,7 +144,7 @@ pub fn apply(
                     _ => unreachable!("registry limits manual choices to budgets"),
                 };
                 if object.get("max_tokens").and_then(Value::as_u64).unwrap_or(0) <= budget {
-                    return Err(format!("Thinking budget {budget} must be less than max_tokens; choose a smaller budget or Default."));
+                    return Err(format!("Thinking budget {budget} must be less than max_tokens; choose Default or Off for this request."));
                 }
                 object.insert("thinking".into(), json!({"type": "enabled", "budget_tokens": budget}));
                 object.remove("temperature");

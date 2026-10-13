@@ -152,6 +152,17 @@ vi.mock('../../../stores/authStore', () => ({
 }))
 
 describe('LlmPane', () => {
+  it('warns that manual budgets cannot fit the existing Ask output cap', () => {
+    Object.assign(mockAppStore.config, {
+      llm_provider: 'claude',
+      llm_base_url: 'https://api.anthropic.com/v1',
+      llm_model: 'claude-sonnet-4-0',
+      llm_thinking_strength: 'budget_1024',
+    })
+    render(<LlmPane />)
+    expect(screen.getByRole('alert')).toHaveTextContent('settings.thinkingAskBudgetLimit')
+  })
+
   beforeEach(() => {
     // Reset mock store state
     mockAppStore.config = {

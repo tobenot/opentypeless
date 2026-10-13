@@ -491,7 +491,8 @@
       "max": "Maximum",
       "budget_1024": "1,024 tokens",
       "budget_2048": "2,048 tokens"
-    }
+    },
+    "thinkingAskBudgetLimit": "Manual thinking budgets work in dictation cleanup, but exceed Ask’s existing 80-token output cap. Choose Default or Off before using Ask."
   },
   "contextFamilies": {
     "email": "Email",

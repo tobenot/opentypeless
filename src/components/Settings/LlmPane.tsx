@@ -453,6 +453,11 @@ export function LlmPane() {
           )}
         </p>
         <p className="text-[11px] text-text-tertiary mt-1">{t('settings.thinkingHint')}</p>
+        {thinking.supported && selectedThinking.startsWith('budget_') && (
+          <p role="alert" className="text-[11px] text-text-secondary mt-1">
+            {t('settings.thinkingAskBudgetLimit')}
+          </p>
+        )}
       </FormField>
 
       <div className="space-y-3 pt-1">

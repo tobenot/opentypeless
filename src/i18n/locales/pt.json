@@ -491,7 +491,8 @@
       "max": "Máximo",
       "budget_1024": "1,024 tokens",
       "budget_2048": "2,048 tokens"
-    }
+    },
+    "thinkingAskBudgetLimit": "Os orçamentos de raciocínio manuais funcionam na revisão de ditados, mas excedem o limite de saída atual do Ask de 80 tokens. Escolha Padrão ou Desativado antes de usar o Ask."
   },
   "contextFamilies": {
     "email": "E-mail",

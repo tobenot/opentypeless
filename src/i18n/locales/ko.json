@@ -491,7 +491,8 @@
       "max": "최대",
       "budget_1024": "1,024 tokens",
       "budget_2048": "2,048 tokens"
-    }
+    },
+    "thinkingAskBudgetLimit": "수동 사고 예산은 받아쓰기 정리에 사용할 수 있지만 Ask의 기존 출력 한도인 80토큰을 초과합니다. Ask를 사용하기 전에 기본값 또는 끄기를 선택하세요."
   },
   "contextFamilies": {
     "email": "이메일",

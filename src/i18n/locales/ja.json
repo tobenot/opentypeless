@@ -491,7 +491,8 @@
       "max": "最大",
       "budget_1024": "1,024 tokens",
       "budget_2048": "2,048 tokens"
-    }
+    },
+    "thinkingAskBudgetLimit": "手動の思考予算は音声入力の整形に使えますが、Ask の既存の出力上限（80トークン）を超えます。Ask を使う前に「デフォルト」または「オフ」を選んでください。"
   },
   "contextFamilies": {
     "email": "メールアドレス",

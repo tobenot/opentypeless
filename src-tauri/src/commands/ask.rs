@@ -1872,6 +1872,31 @@ mod tests {
     }
 
     #[test]
+    fn thinking_ask_body_preserves_cap_and_rejects_manual_budget() {
+        use crate::llm::thinking::ThinkingStrength;
+        let mut config = storage::AppConfig {
+            llm_provider: "deepseek".into(),
+            llm_base_url: "https://api.deepseek.com/v1".into(),
+            llm_model: "deepseek-flash".into(),
+            llm_thinking_strength: ThinkingStrength::High,
+            ..storage::AppConfig::default()
+        };
+        let body = build_byok_ask_body_for_config(&config, "Neutral question?", None).unwrap();
+        assert_eq!(body["reasoning_effort"], "high");
+        assert_eq!(body["max_tokens"], ASK_OUTPUT_TOKEN_LIMIT);
+        config.llm_provider = "claude".into();
+        config.llm_base_url = "https://api.anthropic.com/v1".into();
+        config.llm_model = "claude-sonnet-4-0".into();
+        config.llm_thinking_strength = ThinkingStrength::Budget1024;
+        assert!(build_byok_ask_body_for_config(&config, "Neutral question?", None)
+            .unwrap_err().contains("must be less than max_tokens"));
+        config.llm_thinking_strength = ThinkingStrength::Off;
+        let body = build_byok_ask_body_for_config(&config, "Neutral question?", None).unwrap();
+        assert_eq!(body["thinking"]["type"], "disabled");
+        assert_eq!(body["max_tokens"], ASK_OUTPUT_TOKEN_LIMIT);
+    }
+
+    #[test]
     fn byok_ask_config_uses_gpt5_compatible_fields_for_direct_openai() {
         let config = storage::AppConfig {
             llm_provider: "openai".to_string(),

@@ -491,7 +491,8 @@
       "max": "Maximum",
       "budget_1024": "1,024 tokens",
       "budget_2048": "2,048 tokens"
-    }
+    },
+    "thinkingAskBudgetLimit": "Manuelle Denkbudgets funktionieren bei der Diktatüberarbeitung, überschreiten aber das bestehende Ausgabelimit von Ask (80 Token). Wählen Sie vor der Nutzung von Ask Standard oder Aus."
   },
   "contextFamilies": {
     "email": "E-Mail",

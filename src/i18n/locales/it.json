@@ -491,7 +491,8 @@
       "max": "Massimo",
       "budget_1024": "1,024 tokens",
       "budget_2048": "2,048 tokens"
-    }
+    },
+    "thinkingAskBudgetLimit": "I budget di ragionamento manuali funzionano per la revisione della dettatura, ma superano il limite di output attuale di Ask di 80 token. Scegli Predefinito o Disattivato prima di usare Ask."
   },
   "contextFamilies": {
     "email": "Email",
