@@ -1907,6 +1907,70 @@ mod tests {
     }
 
     #[test]
+    fn thinking_ask_body_serializes_other_adapters_and_rejects_unsupported_choice() {
+        use crate::llm::thinking::ThinkingStrength;
+        for (provider, base, model, strength, expected) in [
+            (
+                "openai",
+                "https://api.openai.com/v1",
+                "gpt-5.1",
+                ThinkingStrength::Off,
+                "none",
+            ),
+            (
+                "gemini",
+                "https://generativelanguage.googleapis.com/v1beta/openai",
+                "gemini-2.5-flash",
+                ThinkingStrength::Low,
+                "low",
+            ),
+            (
+                "claude",
+                "https://api.anthropic.com/v1",
+                "claude-sonnet-4-6",
+                ThinkingStrength::High,
+                "high",
+            ),
+        ] {
+            let mut config = storage::AppConfig {
+                llm_provider: provider.into(),
+                llm_base_url: base.into(),
+                llm_model: model.into(),
+                llm_thinking_strength: strength,
+                ..storage::AppConfig::default()
+            };
+            let body = build_byok_ask_body_for_config(&config, "Neutral question?", None).unwrap();
+            let serialized: serde_json::Value =
+                serde_json::from_slice(&serde_json::to_vec(&body).unwrap()).unwrap();
+            assert_eq!(serialized["stream"], false);
+            assert_eq!(
+                serialized[if provider == "openai" {
+                    "max_completion_tokens"
+                } else {
+                    "max_tokens"
+                }],
+                ASK_OUTPUT_TOKEN_LIMIT
+            );
+            if provider == "claude" {
+                assert_eq!(serialized["thinking"]["type"], "adaptive");
+                assert_eq!(serialized["output_config"]["effort"], expected);
+            } else {
+                assert_eq!(serialized["reasoning_effort"], expected);
+            }
+            config.llm_model = "future-model".into();
+            assert_eq!(
+                build_byok_ask_body_for_config(&config, "Neutral question?", None).unwrap_err(),
+                crate::llm::thinking::UNAVAILABLE_CHOICE_MESSAGE
+            );
+            config.llm_thinking_strength = ThinkingStrength::Default;
+            let default_body =
+                build_byok_ask_body_for_config(&config, "Neutral question?", None).unwrap();
+            assert!(default_body.get("thinking").is_none());
+            assert!(default_body.get("reasoning_effort").is_none());
+        }
+    }
+
+    #[test]
     fn byok_ask_config_uses_gpt5_compatible_fields_for_direct_openai() {
         let config = storage::AppConfig {
             llm_provider: "openai".to_string(),
