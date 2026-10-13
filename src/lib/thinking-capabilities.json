@@ -4,16 +4,9 @@
   "entries": [
     {
       "id": "deepseek-v4",
-      "providers": [
-        "deepseek"
-      ],
+      "providers": ["deepseek"],
       "host": "api.deepseek.com",
-      "paths": [
-        "",
-        "/chat/completions",
-        "/v1",
-        "/v1/chat/completions"
-      ],
+      "paths": ["", "/chat/completions", "/v1", "/v1/chat/completions"],
       "models": [
         "deepseek-flash",
         "deepseek-v4-flash",
@@ -21,13 +14,7 @@
         "deepseek-v4-pro"
       ],
       "adapter": "deepseek",
-      "options": [
-        "default",
-        "off",
-        "low",
-        "high",
-        "max"
-      ],
+      "options": ["default", "off", "low", "high", "max"],
       "sources": [
         "https://api-docs.deepseek.com/guides/thinking_mode/",
         "https://api-docs.deepseek.com/quick_start/pricing/"
@@ -35,26 +22,12 @@
     },
     {
       "id": "openai-gpt-5",
-      "providers": [
-        "openai"
-      ],
+      "providers": ["openai"],
       "host": "api.openai.com",
-      "paths": [
-        "/v1",
-        "/v1/chat/completions"
-      ],
-      "models": [
-        "gpt-5",
-        "gpt-5-2025-08-07"
-      ],
+      "paths": ["/v1", "/v1/chat/completions"],
+      "models": ["gpt-5", "gpt-5-2025-08-07"],
       "adapter": "openai",
-      "options": [
-        "default",
-        "minimal",
-        "low",
-        "medium",
-        "high"
-      ],
+      "options": ["default", "minimal", "low", "medium", "high"],
       "sources": [
         "https://developers.openai.com/api/docs/models/gpt-5",
         "https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create"
@@ -62,26 +35,12 @@
     },
     {
       "id": "openai-gpt-5.1",
-      "providers": [
-        "openai"
-      ],
+      "providers": ["openai"],
       "host": "api.openai.com",
-      "paths": [
-        "/v1",
-        "/v1/chat/completions"
-      ],
-      "models": [
-        "gpt-5.1",
-        "gpt-5.1-2025-11-13"
-      ],
+      "paths": ["/v1", "/v1/chat/completions"],
+      "models": ["gpt-5.1", "gpt-5.1-2025-11-13"],
       "adapter": "openai",
-      "options": [
-        "default",
-        "off",
-        "low",
-        "medium",
-        "high"
-      ],
+      "options": ["default", "off", "low", "medium", "high"],
       "sources": [
         "https://developers.openai.com/api/docs/models/gpt-5.1",
         "https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create"
@@ -89,27 +48,12 @@
     },
     {
       "id": "openai-gpt-5.2",
-      "providers": [
-        "openai"
-      ],
+      "providers": ["openai"],
       "host": "api.openai.com",
-      "paths": [
-        "/v1",
-        "/v1/chat/completions"
-      ],
-      "models": [
-        "gpt-5.2",
-        "gpt-5.2-2025-12-11"
-      ],
+      "paths": ["/v1", "/v1/chat/completions"],
+      "models": ["gpt-5.2", "gpt-5.2-2025-12-11"],
       "adapter": "openai",
-      "options": [
-        "default",
-        "off",
-        "low",
-        "medium",
-        "high",
-        "xhigh"
-      ],
+      "options": ["default", "off", "low", "medium", "high", "xhigh"],
       "sources": [
         "https://developers.openai.com/api/docs/models/gpt-5.2",
         "https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create"
@@ -117,16 +61,9 @@
     },
     {
       "id": "claude-manual",
-      "providers": [
-        "claude",
-        "anthropic"
-      ],
+      "providers": ["claude", "anthropic"],
       "host": "api.anthropic.com",
-      "paths": [
-        "",
-        "/v1",
-        "/v1/messages"
-      ],
+      "paths": ["", "/v1", "/v1/messages"],
       "models": [
         "claude-sonnet-4",
         "claude-sonnet-4-0",
@@ -144,12 +81,7 @@
         "claude-opus-4-5-20251101"
       ],
       "adapter": "anthropic_manual",
-      "options": [
-        "default",
-        "off",
-        "budget_1024",
-        "budget_2048"
-      ],
+      "options": ["default", "off", "budget_1024", "budget_2048"],
       "sources": [
         "https://platform.claude.com/docs/en/build-with-claude/extended-thinking",
         "https://platform.claude.com/docs/en/build-with-claude/thinking-troubleshooting"
@@ -157,28 +89,12 @@
     },
     {
       "id": "claude-sonnet-4-6",
-      "providers": [
-        "claude",
-        "anthropic"
-      ],
+      "providers": ["claude", "anthropic"],
       "host": "api.anthropic.com",
-      "paths": [
-        "",
-        "/v1",
-        "/v1/messages"
-      ],
-      "models": [
-        "claude-sonnet-4-6"
-      ],
+      "paths": ["", "/v1", "/v1/messages"],
+      "models": ["claude-sonnet-4-6"],
       "adapter": "anthropic_adaptive",
-      "options": [
-        "default",
-        "off",
-        "low",
-        "medium",
-        "high",
-        "max"
-      ],
+      "options": ["default", "off", "low", "medium", "high", "max"],
       "sources": [
         "https://platform.claude.com/docs/en/build-with-claude/effort",
         "https://platform.claude.com/docs/en/build-with-claude/thinking-troubleshooting"
@@ -186,28 +102,12 @@
     },
     {
       "id": "claude-opus-4-6",
-      "providers": [
-        "claude",
-        "anthropic"
-      ],
+      "providers": ["claude", "anthropic"],
       "host": "api.anthropic.com",
-      "paths": [
-        "",
-        "/v1",
-        "/v1/messages"
-      ],
-      "models": [
-        "claude-opus-4-6"
-      ],
+      "paths": ["", "/v1", "/v1/messages"],
+      "models": ["claude-opus-4-6"],
       "adapter": "anthropic_adaptive",
-      "options": [
-        "default",
-        "off",
-        "low",
-        "medium",
-        "high",
-        "max"
-      ],
+      "options": ["default", "off", "low", "medium", "high", "max"],
       "sources": [
         "https://platform.claude.com/docs/en/build-with-claude/effort",
         "https://platform.claude.com/docs/en/build-with-claude/thinking-troubleshooting"
@@ -215,26 +115,12 @@
     },
     {
       "id": "google-gemini-2.5-flash",
-      "providers": [
-        "gemini"
-      ],
+      "providers": ["gemini"],
       "host": "generativelanguage.googleapis.com",
-      "paths": [
-        "/v1beta/openai",
-        "/v1beta/openai/chat/completions"
-      ],
-      "models": [
-        "gemini-2.5-flash",
-        "gemini-2.5-flash-lite"
-      ],
+      "paths": ["/v1beta/openai", "/v1beta/openai/chat/completions"],
+      "models": ["gemini-2.5-flash", "gemini-2.5-flash-lite"],
       "adapter": "gemini",
-      "options": [
-        "default",
-        "off",
-        "low",
-        "medium",
-        "high"
-      ],
+      "options": ["default", "off", "low", "medium", "high"],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/openai",
         "https://ai.google.dev/gemini-api/docs/thinking"
@@ -242,24 +128,12 @@
     },
     {
       "id": "google-gemini-2.5-pro",
-      "providers": [
-        "gemini"
-      ],
+      "providers": ["gemini"],
       "host": "generativelanguage.googleapis.com",
-      "paths": [
-        "/v1beta/openai",
-        "/v1beta/openai/chat/completions"
-      ],
-      "models": [
-        "gemini-2.5-pro"
-      ],
+      "paths": ["/v1beta/openai", "/v1beta/openai/chat/completions"],
+      "models": ["gemini-2.5-pro"],
       "adapter": "gemini",
-      "options": [
-        "default",
-        "low",
-        "medium",
-        "high"
-      ],
+      "options": ["default", "low", "medium", "high"],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/openai",
         "https://ai.google.dev/gemini-api/docs/thinking"
@@ -267,27 +141,12 @@
     },
     {
       "id": "google-gemini-3-flash-preview",
-      "providers": [
-        "gemini"
-      ],
+      "providers": ["gemini"],
       "host": "generativelanguage.googleapis.com",
-      "paths": [
-        "/v1beta/openai",
-        "/v1beta/openai/chat/completions"
-      ],
-      "models": [
-        "gemini-3-flash-preview",
-        "gemini-3.6-flash",
-        "gemini-3.5-flash-lite"
-      ],
+      "paths": ["/v1beta/openai", "/v1beta/openai/chat/completions"],
+      "models": ["gemini-3-flash-preview", "gemini-3.6-flash", "gemini-3.5-flash-lite"],
       "adapter": "gemini",
-      "options": [
-        "default",
-        "minimal",
-        "low",
-        "medium",
-        "high"
-      ],
+      "options": ["default", "minimal", "low", "medium", "high"],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/openai",
         "https://ai.google.dev/gemini-api/docs/thinking"
@@ -295,26 +154,12 @@
     },
     {
       "id": "google-gemini-3.1-pro-preview",
-      "providers": [
-        "gemini"
-      ],
+      "providers": ["gemini"],
       "host": "generativelanguage.googleapis.com",
-      "paths": [
-        "/v1beta/openai",
-        "/v1beta/openai/chat/completions"
-      ],
-      "models": [
-        "gemini-3.1-pro-preview",
-        "gemini-3.8-flash",
-        "gemini-4-argon"
-      ],
+      "paths": ["/v1beta/openai", "/v1beta/openai/chat/completions"],
+      "models": ["gemini-3.1-pro-preview", "gemini-3.8-flash", "gemini-4-argon"],
       "adapter": "gemini",
-      "options": [
-        "default",
-        "low",
-        "medium",
-        "high"
-      ],
+      "options": ["default", "low", "medium", "high"],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/openai",
         "https://ai.google.dev/gemini-api/docs/thinking"
@@ -322,23 +167,12 @@
     },
     {
       "id": "google-gemini-3-pro-preview",
-      "providers": [
-        "gemini"
-      ],
+      "providers": ["gemini"],
       "host": "generativelanguage.googleapis.com",
-      "paths": [
-        "/v1beta/openai",
-        "/v1beta/openai/chat/completions"
-      ],
-      "models": [
-        "gemini-3-pro-preview"
-      ],
+      "paths": ["/v1beta/openai", "/v1beta/openai/chat/completions"],
+      "models": ["gemini-3-pro-preview"],
       "adapter": "gemini",
-      "options": [
-        "default",
-        "low",
-        "high"
-      ],
+      "options": ["default", "low", "high"],
       "sources": [
         "https://ai.google.dev/gemini-api/docs/openai",
         "https://ai.google.dev/gemini-api/docs/thinking"
@@ -346,27 +180,12 @@
     },
     {
       "id": "openai-gpt-5.5",
-      "providers": [
-        "openai"
-      ],
+      "providers": ["openai"],
       "host": "api.openai.com",
-      "paths": [
-        "/v1",
-        "/v1/chat/completions"
-      ],
-      "models": [
-        "gpt-5.5",
-        "gpt-5.5-2026-04-23"
-      ],
+      "paths": ["/v1", "/v1/chat/completions"],
+      "models": ["gpt-5.5", "gpt-5.5-2026-04-23"],
       "adapter": "openai",
-      "options": [
-        "default",
-        "off",
-        "low",
-        "medium",
-        "high",
-        "xhigh"
-      ],
+      "options": ["default", "off", "low", "medium", "high", "xhigh"],
       "sources": [
         "https://developers.openai.com/api/docs/models/gpt-5.5",
         "https://developers.openai.com/api/docs/guides/reasoning"
@@ -374,26 +193,12 @@
     },
     {
       "id": "openai-gpt-6-astra",
-      "providers": [
-        "openai"
-      ],
+      "providers": ["openai"],
       "host": "api.openai.com",
-      "paths": [
-        "/v1",
-        "/v1/chat/completions"
-      ],
-      "models": [
-        "gpt-6-astra"
-      ],
+      "paths": ["/v1", "/v1/chat/completions"],
+      "models": ["gpt-6-astra"],
       "adapter": "openai",
-      "options": [
-        "default",
-        "low",
-        "medium",
-        "high",
-        "xhigh",
-        "max"
-      ],
+      "options": ["default", "low", "medium", "high", "xhigh", "max"],
       "sources": [
         "https://developers.openai.com/api/docs/models/gpt-6-astra",
         "https://developers.openai.com/api/docs/guides/reasoning"
@@ -401,28 +206,12 @@
     },
     {
       "id": "claude-fable-5-1",
-      "providers": [
-        "claude",
-        "anthropic"
-      ],
+      "providers": ["claude", "anthropic"],
       "host": "api.anthropic.com",
-      "paths": [
-        "",
-        "/v1",
-        "/v1/messages"
-      ],
-      "models": [
-        "claude-fable-5-1"
-      ],
+      "paths": ["", "/v1", "/v1/messages"],
+      "models": ["claude-fable-5-1"],
       "adapter": "anthropic_adaptive",
-      "options": [
-        "default",
-        "low",
-        "medium",
-        "high",
-        "xhigh",
-        "max"
-      ],
+      "options": ["default", "low", "medium", "high", "xhigh", "max"],
       "sources": [
         "https://platform.claude.com/docs/en/build-with-claude/effort",
         "https://platform.claude.com/docs/en/build-with-claude/thinking-troubleshooting",
@@ -431,28 +220,12 @@
     },
     {
       "id": "claude-opus-5-5",
-      "providers": [
-        "claude",
-        "anthropic"
-      ],
+      "providers": ["claude", "anthropic"],
       "host": "api.anthropic.com",
-      "paths": [
-        "",
-        "/v1",
-        "/v1/messages"
-      ],
-      "models": [
-        "claude-opus-5-5"
-      ],
+      "paths": ["", "/v1", "/v1/messages"],
+      "models": ["claude-opus-5-5"],
       "adapter": "anthropic_adaptive",
-      "options": [
-        "default",
-        "low",
-        "medium",
-        "high",
-        "xhigh",
-        "max"
-      ],
+      "options": ["default", "low", "medium", "high", "xhigh", "max"],
       "sources": [
         "https://platform.claude.com/docs/en/build-with-claude/effort",
         "https://platform.claude.com/docs/en/build-with-claude/thinking-troubleshooting",
@@ -461,29 +234,12 @@
     },
     {
       "id": "claude-haiku-5-5",
-      "providers": [
-        "claude",
-        "anthropic"
-      ],
+      "providers": ["claude", "anthropic"],
       "host": "api.anthropic.com",
-      "paths": [
-        "",
-        "/v1",
-        "/v1/messages"
-      ],
-      "models": [
-        "claude-haiku-5-5"
-      ],
+      "paths": ["", "/v1", "/v1/messages"],
+      "models": ["claude-haiku-5-5"],
       "adapter": "anthropic_adaptive",
-      "options": [
-        "default",
-        "off",
-        "low",
-        "medium",
-        "high",
-        "xhigh",
-        "max"
-      ],
+      "options": ["default", "off", "low", "medium", "high", "xhigh", "max"],
       "sources": [
         "https://platform.claude.com/docs/en/build-with-claude/effort",
         "https://platform.claude.com/docs/en/build-with-claude/thinking-troubleshooting",
@@ -492,28 +248,12 @@
     },
     {
       "id": "claude-sonnet-5-5",
-      "providers": [
-        "claude",
-        "anthropic"
-      ],
+      "providers": ["claude", "anthropic"],
       "host": "api.anthropic.com",
-      "paths": [
-        "",
-        "/v1",
-        "/v1/messages"
-      ],
-      "models": [
-        "claude-sonnet-5-5"
-      ],
+      "paths": ["", "/v1", "/v1/messages"],
+      "models": ["claude-sonnet-5-5"],
       "adapter": "anthropic_adaptive",
-      "options": [
-        "default",
-        "low",
-        "medium",
-        "high",
-        "xhigh",
-        "max"
-      ],
+      "options": ["default", "low", "medium", "high", "xhigh", "max"],
       "sources": [
         "https://platform.claude.com/docs/en/build-with-claude/effort",
         "https://platform.claude.com/docs/en/build-with-claude/thinking-troubleshooting",
