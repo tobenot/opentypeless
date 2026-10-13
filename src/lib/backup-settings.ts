@@ -246,7 +246,11 @@ function isRecord(value: unknown): value is Record<string, unknown> {
 export function mergeBackupSettings(current: AppConfig, backup: unknown): AppConfig {
   if (!isRecord(backup)) return current
 
-  const next = { ...current }
+  const next = {
+    ...current,
+    llm_thinking_strength:
+      'llm_thinking_strength' in backup ? current.llm_thinking_strength : ('default' as const),
+  }
   const writable = next as unknown as Record<string, unknown>
   for (const key of SAFE_SCALAR_KEYS) {
     const incoming = backup[key]

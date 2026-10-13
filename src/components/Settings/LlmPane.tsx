@@ -44,7 +44,12 @@ export function LlmPane() {
   const { t } = useTranslation()
 
   const isCloud = config.llm_provider === 'cloud'
-  const thinking = thinkingState(config.llm_provider, config.llm_base_url, config.llm_model, config.llm_thinking_strength)
+  const thinking = thinkingState(
+    config.llm_provider,
+    config.llm_base_url,
+    config.llm_model,
+    config.llm_thinking_strength,
+  )
   const selectedThinking = config.llm_thinking_strength ?? 'default'
   const requiresApiKey = llmProviderRequiresApiKey(config.llm_provider)
   const polishPromptLength = config.polish_custom_prompt.length
@@ -415,14 +420,37 @@ export function LlmPane() {
           aria-label={t('settings.thinkingStrength')}
           aria-describedby="thinking-status"
           value={selectedThinking}
-          onChange={(event) => updateConfig({ llm_thinking_strength: event.target.value as ThinkingStrength })}
+          onChange={(event) =>
+            updateConfig({ llm_thinking_strength: event.target.value as ThinkingStrength })
+          }
           className="w-full px-3 py-2.5 bg-bg-secondary border border-border rounded-[10px] text-[13px] text-text-primary"
         >
-          {!thinking.supported && <option value={selectedThinking} disabled>{t(`settings.thinkingOptions.${selectedThinking}`)} ({t('settings.thinkingUnsupportedOption')})</option>}
-          {thinking.options.map((choice) => <option key={choice} value={choice}>{t(`settings.thinkingOptions.${choice}`)}</option>)}
+          {!thinking.supported && (
+            <option value={selectedThinking} disabled>
+              {t(`settings.thinkingOptions.${selectedThinking}`)} (
+              {t('settings.thinkingUnsupportedOption')})
+            </option>
+          )}
+          {thinking.options.map((choice) => (
+            <option key={choice} value={choice}>
+              {t(`settings.thinkingOptions.${choice}`)}
+            </option>
+          ))}
         </select>
-        <p id="thinking-status" role={!thinking.supported ? 'alert' : 'status'} className="text-[11px] text-text-secondary mt-1.5">
-          {t(!thinking.supported ? 'settings.thinkingUnsupported' : !thinking.available ? 'settings.thinkingUnavailable' : selectedThinking === 'default' ? 'settings.thinkingDefaultHint' : 'settings.thinkingActive')}
+        <p
+          id="thinking-status"
+          role={!thinking.supported ? 'alert' : 'status'}
+          className="text-[11px] text-text-secondary mt-1.5"
+        >
+          {t(
+            !thinking.supported
+              ? 'settings.thinkingUnsupported'
+              : !thinking.available
+                ? 'settings.thinkingUnavailable'
+                : selectedThinking === 'default'
+                  ? 'settings.thinkingDefaultHint'
+                  : 'settings.thinkingActive',
+          )}
         </p>
         <p className="text-[11px] text-text-tertiary mt-1">{t('settings.thinkingHint')}</p>
       </FormField>

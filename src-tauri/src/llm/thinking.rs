@@ -58,7 +58,8 @@ fn registry() -> &'static Registry {
 
 pub fn capability(provider: &str, base_url: &str, model: &str) -> Option<&'static Capability> {
     let url = url::Url::parse(base_url.trim()).ok()?;
-    if !matches!(url.scheme(), "http" | "https")
+    if url.scheme() != "https"
+        || url.port_or_known_default() != Some(443)
         || !url.username().is_empty()
         || url.password().is_some()
         || url.query().is_some()
@@ -150,6 +151,7 @@ pub fn apply(
             }
         }
         Adapter::AnthropicAdaptive => {
+            object.remove("temperature");
             if strength == ThinkingStrength::Off {
                 object.insert("thinking".into(), json!({"type": "disabled"}));
             } else {
@@ -200,6 +202,8 @@ mod tests {
         for (p, url, model) in [
             ("openai", "https://api.openai.com/v1", "gpt-5-future"),
             ("openai", "https://proxy.example/v1", "gpt-5.1"),
+            ("openai", "http://api.openai.com/v1", "gpt-5.1"),
+            ("openai", "https://api.openai.com:8443/v1", "gpt-5.1"),
             ("custom", "https://api.openai.com/v1", "gpt-5.1"),
             ("openai", "https://api.openai.com/v1/responses", "gpt-5.1"),
             ("deepseek", "https://api.deepseek.com/anthropic", "deepseek-flash"),

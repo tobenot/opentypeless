@@ -57,7 +57,7 @@
       ],
       "sources": [
         "https://developers.openai.com/api/docs/models/gpt-5",
-        "https://platform.openai.com/docs/api-reference/chat/create"
+        "https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create"
       ]
     },
     {
@@ -84,7 +84,7 @@
       ],
       "sources": [
         "https://developers.openai.com/api/docs/models/gpt-5.1",
-        "https://platform.openai.com/docs/api-reference/chat/create"
+        "https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create"
       ]
     },
     {
@@ -112,7 +112,7 @@
       ],
       "sources": [
         "https://developers.openai.com/api/docs/models/gpt-5.2",
-        "https://platform.openai.com/docs/api-reference/chat/create"
+        "https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create"
       ]
     },
     {
@@ -176,7 +176,8 @@
         "off",
         "low",
         "medium",
-        "high"
+        "high",
+        "max"
       ],
       "sources": [
         "https://platform.claude.com/docs/en/build-with-claude/effort",
@@ -341,6 +342,182 @@
       "sources": [
         "https://ai.google.dev/gemini-api/docs/openai",
         "https://ai.google.dev/gemini-api/docs/thinking"
+      ]
+    },
+    {
+      "id": "openai-gpt-5.5",
+      "providers": [
+        "openai"
+      ],
+      "host": "api.openai.com",
+      "paths": [
+        "/v1",
+        "/v1/chat/completions"
+      ],
+      "models": [
+        "gpt-5.5",
+        "gpt-5.5-2026-04-23"
+      ],
+      "adapter": "openai",
+      "options": [
+        "default",
+        "off",
+        "low",
+        "medium",
+        "high",
+        "xhigh"
+      ],
+      "sources": [
+        "https://developers.openai.com/api/docs/models/gpt-5.5",
+        "https://developers.openai.com/api/docs/guides/reasoning"
+      ]
+    },
+    {
+      "id": "openai-gpt-6-astra",
+      "providers": [
+        "openai"
+      ],
+      "host": "api.openai.com",
+      "paths": [
+        "/v1",
+        "/v1/chat/completions"
+      ],
+      "models": [
+        "gpt-6-astra"
+      ],
+      "adapter": "openai",
+      "options": [
+        "default",
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "sources": [
+        "https://developers.openai.com/api/docs/models/gpt-6-astra",
+        "https://developers.openai.com/api/docs/guides/reasoning"
+      ]
+    },
+    {
+      "id": "claude-fable-5-1",
+      "providers": [
+        "claude",
+        "anthropic"
+      ],
+      "host": "api.anthropic.com",
+      "paths": [
+        "",
+        "/v1",
+        "/v1/messages"
+      ],
+      "models": [
+        "claude-fable-5-1"
+      ],
+      "adapter": "anthropic_adaptive",
+      "options": [
+        "default",
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "sources": [
+        "https://platform.claude.com/docs/en/build-with-claude/effort",
+        "https://platform.claude.com/docs/en/build-with-claude/thinking-troubleshooting",
+        "https://platform.claude.com/docs/en/models/overview"
+      ]
+    },
+    {
+      "id": "claude-opus-5-5",
+      "providers": [
+        "claude",
+        "anthropic"
+      ],
+      "host": "api.anthropic.com",
+      "paths": [
+        "",
+        "/v1",
+        "/v1/messages"
+      ],
+      "models": [
+        "claude-opus-5-5"
+      ],
+      "adapter": "anthropic_adaptive",
+      "options": [
+        "default",
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "sources": [
+        "https://platform.claude.com/docs/en/build-with-claude/effort",
+        "https://platform.claude.com/docs/en/build-with-claude/thinking-troubleshooting",
+        "https://platform.claude.com/docs/en/models/overview"
+      ]
+    },
+    {
+      "id": "claude-haiku-5-5",
+      "providers": [
+        "claude",
+        "anthropic"
+      ],
+      "host": "api.anthropic.com",
+      "paths": [
+        "",
+        "/v1",
+        "/v1/messages"
+      ],
+      "models": [
+        "claude-haiku-5-5"
+      ],
+      "adapter": "anthropic_adaptive",
+      "options": [
+        "default",
+        "off",
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "sources": [
+        "https://platform.claude.com/docs/en/build-with-claude/effort",
+        "https://platform.claude.com/docs/en/build-with-claude/thinking-troubleshooting",
+        "https://platform.claude.com/docs/en/models/overview"
+      ]
+    },
+    {
+      "id": "claude-sonnet-5-5",
+      "providers": [
+        "claude",
+        "anthropic"
+      ],
+      "host": "api.anthropic.com",
+      "paths": [
+        "",
+        "/v1",
+        "/v1/messages"
+      ],
+      "models": [
+        "claude-sonnet-5-5"
+      ],
+      "adapter": "anthropic_adaptive",
+      "options": [
+        "default",
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "sources": [
+        "https://platform.claude.com/docs/en/build-with-claude/effort",
+        "https://platform.claude.com/docs/en/build-with-claude/thinking-troubleshooting",
+        "https://platform.claude.com/docs/en/models/overview"
       ]
     }
   ]

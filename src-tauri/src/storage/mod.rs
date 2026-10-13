@@ -2204,6 +2204,21 @@ mod tests {
     }
 
     #[test]
+    fn thinking_config_legacy_and_roundtrip() {
+        use crate::llm::thinking::ThinkingStrength;
+        let old = AppConfig::from_stored_value(serde_json::json!({})).unwrap();
+        assert_eq!(old.llm_thinking_strength, ThinkingStrength::Default);
+        let mut config = AppConfig { llm_thinking_strength: ThinkingStrength::Off, ..old };
+        let encoded = serde_json::to_value(&config).unwrap();
+        assert_eq!(encoded["llm_thinking_strength"], "off");
+        let restored = AppConfig::from_stored_value(encoded).unwrap();
+        assert_eq!(restored.llm_thinking_strength, ThinkingStrength::Off);
+        config.llm_model = "unknown".into();
+        config.normalize_values();
+        assert_eq!(config.llm_thinking_strength, ThinkingStrength::Off);
+    }
+
+    #[test]
     fn app_config_defaults_missing_polish_preferences() {
         let value = serde_json::json!({
             "stt_provider": "glm-asr",

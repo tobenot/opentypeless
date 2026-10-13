@@ -820,7 +820,13 @@ export const useAppStore = create<AppState>((set) => ({
   setLastContext: (lastContext) => set({ lastContext }),
 
   config: defaultConfig,
-  setConfig: (config) => set((s) => ({ config: syncHotkeyConfig(s.config, config) })),
+  setConfig: (config) =>
+    set((s) => ({
+      config: syncHotkeyConfig(s.config, {
+        ...config,
+        llm_thinking_strength: config.llm_thinking_strength ?? 'default',
+      }),
+    })),
   updateConfig: (partial) => set((s) => ({ config: syncHotkeyConfig(s.config, partial) })),
   applyPersistedConfigPatch: (patch) =>
     set((s) => ({
