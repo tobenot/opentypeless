@@ -208,6 +208,9 @@ fn no_speech_user_error() -> crate::error::UserError {
 }
 
 fn llm_polish_user_error(error: &crate::error::AppError) -> crate::error::UserError {
+    if let Some(user_error) = llm::thinking::unavailable_choice_user_error(error) {
+        return user_error;
+    }
     if matches!(error, crate::error::AppError::LlmQuota(_)) {
         return error.to_user_error();
     }

@@ -50,7 +50,8 @@
     "output_streaming_partial": "L'insertion en streaming s'est arrêtée trop tôt. Le texte inséré a été conservé. {{details}}",
     "llm_failed": "Le polissage IA a échoué. Le texte original a été sorti à la place. {{details}}",
     "llm_quota_exceeded": "Le quota IA cloud est dépassé. Passez à Pro ou utilisez le mode BYOK.",
-    "output_wayland_clipboard_copy_only": "Copié dans le presse-papiers. Collez manuellement sous Wayland."
+    "output_wayland_clipboard_copy_only": "Copié dans le presse-papiers. Collez manuellement sous Wayland.",
+    "llm_thinking_unavailable": "Reformulation IA ignorée : le fournisseur, le modèle ou la route ne prend pas en charge le niveau de réflexion enregistré. Dans Paramètres → IA → Intensité de réflexion, choisissez Par défaut ou une valeur prise en charge. La dictée ordinaire utilise la transcription originale."
   },
   "cloudRecovery": {
     "title": "OpenTypeless Cloud est temporairement indisponible",
@@ -259,7 +260,8 @@
       "audio_failed": "Micro échoué",
       "output_failed": "Échec sortie",
       "unknown": "Erreur",
-      "output_wayland_clipboard_copy_only": "Copié"
+      "output_wayland_clipboard_copy_only": "Copié",
+      "llm_thinking_unavailable": "Réflexion : Par défaut"
     },
     "menu": {
       "hideWhenIdle": "Masquer la capsule au repos",

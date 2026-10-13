@@ -50,7 +50,8 @@
     "output_streaming_partial": "L'inserimento in streaming si è interrotto in anticipo. Il testo inserito è stato mantenuto. {{details}}",
     "llm_failed": "La rifinitura con IA non è riuscita. È stato generato il testo originale. {{details}}",
     "llm_quota_exceeded": "La quota IA cloud è esaurita. Passa a Pro o usa la modalità BYOK.",
-    "output_wayland_clipboard_copy_only": "Copiato negli appunti. Incolla manualmente su Wayland."
+    "output_wayland_clipboard_copy_only": "Copiato negli appunti. Incolla manualmente su Wayland.",
+    "llm_thinking_unavailable": "Revisione IA saltata: il provider, il modello o il percorso non supporta l’intensità di ragionamento salvata. In Impostazioni → IA → Intensità di ragionamento, scegli Predefinito o un valore supportato. La dettatura normale usa la trascrizione originale."
   },
   "cloudRecovery": {
     "title": "OpenTypeless Cloud è temporaneamente non disponibile",
@@ -259,7 +260,8 @@
       "audio_failed": "Micro fallito",
       "output_failed": "Output fallito",
       "unknown": "Errore",
-      "output_wayland_clipboard_copy_only": "Copiato"
+      "output_wayland_clipboard_copy_only": "Copiato",
+      "llm_thinking_unavailable": "Ragionamento: predefinito"
     },
     "menu": {
       "hideWhenIdle": "Nascondi capsula quando inattiva",

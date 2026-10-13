@@ -84,6 +84,24 @@ pub fn capability(provider: &str, base_url: &str, model: &str) -> Option<&'stati
     })
 }
 
+pub const UNAVAILABLE_CHOICE_MESSAGE: &str = "Saved thinking strength is unavailable for this provider, model or API route. Choose Default or a supported value in LLM settings.";
+
+/// Give dictation users a specific recovery path without changing pipeline fallback policy.
+pub fn unavailable_choice_user_error(
+    error: &crate::error::AppError,
+) -> Option<crate::error::UserError> {
+    match error {
+        crate::error::AppError::Config(message) if message == UNAVAILABLE_CHOICE_MESSAGE => {
+            Some(crate::error::UserError {
+                code: "llm_thinking_unavailable".to_string(),
+                details: Some(message.clone()),
+                retry_count: 0,
+            })
+        }
+        _ => None,
+    }
+}
+
 pub fn validate(
     provider: &str,
     base_url: &str,
@@ -96,7 +114,7 @@ pub fn validate(
     {
         return Ok(());
     }
-    Err("Saved thinking strength is unavailable for this provider, model or API route. Choose Default or a supported value in LLM settings.".to_string())
+    Err(UNAVAILABLE_CHOICE_MESSAGE.to_string())
 }
 
 /// Apply only an explicitly supported choice. Unsupported saved choices fail before HTTP;
@@ -113,7 +131,9 @@ pub fn apply(
         return Ok(());
     }
     let entry = capability(provider, base_url, model).expect("validated non-default capability");
-    let object = body.as_object_mut().ok_or("LLM request must be an object")?;
+    let object = body
+        .as_object_mut()
+        .ok_or("LLM request must be an object")?;
     let effort = if strength == ThinkingStrength::Off {
         json!("none")
     } else {
@@ -143,10 +163,18 @@ pub fn apply(
                     ThinkingStrength::Budget2048 => 2048,
                     _ => unreachable!("registry limits manual choices to budgets"),
                 };
-                if object.get("max_tokens").and_then(Value::as_u64).unwrap_or(0) <= budget {
+                if object
+                    .get("max_tokens")
+                    .and_then(Value::as_u64)
+                    .unwrap_or(0)
+                    <= budget
+                {
                     return Err(format!("Thinking budget {budget} must be less than max_tokens; choose Default or Off for this request."));
                 }
-                object.insert("thinking".into(), json!({"type": "enabled", "budget_tokens": budget}));
+                object.insert(
+                    "thinking".into(),
+                    json!({"type": "enabled", "budget_tokens": budget}),
+                );
                 object.remove("temperature");
             }
         }
@@ -170,10 +198,36 @@ mod tests {
     use crate::llm::protocol::build_chat_body;
 
     #[test]
+    fn unsupported_choice_has_a_specific_runtime_recovery_code() {
+        let reason = validate(
+            "openai",
+            "https://api.openai.com/v1",
+            "gpt-5",
+            ThinkingStrength::Off,
+        )
+        .unwrap_err();
+        let error = crate::error::AppError::Config(reason.clone());
+        let visible = unavailable_choice_user_error(&error).unwrap();
+        assert_eq!(visible.code, "llm_thinking_unavailable");
+        assert_eq!(visible.details.as_deref(), Some(reason.as_str()));
+        assert!(
+            unavailable_choice_user_error(&crate::error::AppError::Config("unrelated".into()))
+                .is_none()
+        );
+    }
+
+    #[test]
     fn default_is_a_byte_equivalent_noop_even_for_existing_overrides() {
         let mut body = json!({"thinking":{"type":"enabled"},"temperature":1.0,"top_p":0.95});
         let before = serde_json::to_vec(&body).unwrap();
-        apply(&mut body, "zhipu", "https://open.bigmodel.cn/api/paas/v4", "glm-4.7", ThinkingStrength::Default).unwrap();
+        apply(
+            &mut body,
+            "zhipu",
+            "https://open.bigmodel.cn/api/paas/v4",
+            "glm-4.7",
+            ThinkingStrength::Default,
+        )
+        .unwrap();
         assert_eq!(serde_json::to_vec(&body).unwrap(), before);
     }
 
@@ -184,13 +238,26 @@ mod tests {
                 for strength in &entry.options {
                     for stream in [false, true] {
                         let base = format!("https://{}{}", entry.host, entry.paths[0]);
-                        let mut body = build_chat_body(&entry.providers[0], &base, model, vec![], 4096, 0.3, stream);
+                        let mut body = build_chat_body(
+                            &entry.providers[0],
+                            &base,
+                            model,
+                            vec![],
+                            4096,
+                            0.3,
+                            stream,
+                        );
                         let before = body.clone();
                         apply(&mut body, &entry.providers[0], &base, model, *strength).unwrap();
-                        let encoded: Value = serde_json::from_slice(&serde_json::to_vec(&body).unwrap()).unwrap();
+                        let encoded: Value =
+                            serde_json::from_slice(&serde_json::to_vec(&body).unwrap()).unwrap();
                         assert_eq!(encoded["stream"], stream);
-                        if *strength == ThinkingStrength::Default { assert_eq!(encoded, before); }
-                        if *strength == ThinkingStrength::Off { assert_ne!(encoded["reasoning_effort"], "low"); }
+                        if *strength == ThinkingStrength::Default {
+                            assert_eq!(encoded, before);
+                        }
+                        if *strength == ThinkingStrength::Off {
+                            assert_ne!(encoded["reasoning_effort"], "low");
+                        }
                     }
                 }
             }
@@ -206,8 +273,16 @@ mod tests {
             ("openai", "https://api.openai.com:8443/v1", "gpt-5.1"),
             ("custom", "https://api.openai.com/v1", "gpt-5.1"),
             ("openai", "https://api.openai.com/v1/responses", "gpt-5.1"),
-            ("deepseek", "https://api.deepseek.com/anthropic", "deepseek-flash"),
-            ("gemini", "https://generativelanguage.googleapis.com/v1beta", "gemini-2.5-flash"),
+            (
+                "deepseek",
+                "https://api.deepseek.com/anthropic",
+                "deepseek-flash",
+            ),
+            (
+                "gemini",
+                "https://generativelanguage.googleapis.com/v1beta",
+                "gemini-2.5-flash",
+            ),
             ("openai", "https://api.openai.com.evil.test/v1", "gpt-5.1"),
             ("openai", "https://api.openai.com/v1?proxy=1", "gpt-5.1"),
             ("cloud", "https://api.openai.com/v1", "gpt-5.1"),
@@ -215,28 +290,63 @@ mod tests {
             assert!(capability(p, url, model).is_none());
             let mut body = json!({"neutral":true});
             let before = body.clone();
-            assert!(apply(&mut body,p,url,model,ThinkingStrength::Low).is_err());
-            assert_eq!(body,before);
-            apply(&mut body,p,url,model,ThinkingStrength::Default).unwrap();
-            assert_eq!(body,before);
+            assert!(apply(&mut body, p, url, model, ThinkingStrength::Low).is_err());
+            assert_eq!(body, before);
+            apply(&mut body, p, url, model, ThinkingStrength::Default).unwrap();
+            assert_eq!(body, before);
         }
     }
 
     #[test]
     fn off_is_available_only_for_documented_disable_support() {
-        assert!(validate("openai", "https://api.openai.com/v1", "gpt-5", ThinkingStrength::Off).is_err());
-        assert!(validate("gemini", "https://generativelanguage.googleapis.com/v1beta/openai", "gemini-2.5-pro", ThinkingStrength::Off).is_err());
-        assert!(validate("gemini", "https://generativelanguage.googleapis.com/v1beta/openai", "gemini-2.5-flash", ThinkingStrength::Off).is_ok());
+        assert!(validate(
+            "openai",
+            "https://api.openai.com/v1",
+            "gpt-5",
+            ThinkingStrength::Off
+        )
+        .is_err());
+        assert!(validate(
+            "gemini",
+            "https://generativelanguage.googleapis.com/v1beta/openai",
+            "gemini-2.5-pro",
+            ThinkingStrength::Off
+        )
+        .is_err());
+        assert!(validate(
+            "gemini",
+            "https://generativelanguage.googleapis.com/v1beta/openai",
+            "gemini-2.5-flash",
+            ThinkingStrength::Off
+        )
+        .is_ok());
     }
 
     #[test]
     fn manual_budget_preserves_output_limit_and_checks_inequality() {
         let mut body = json!({"max_tokens":1024,"temperature":0.3});
-        assert!(apply(&mut body,"claude","https://api.anthropic.com/v1","claude-sonnet-4-0",ThinkingStrength::Budget1024).is_err());
+        assert!(apply(
+            &mut body,
+            "claude",
+            "https://api.anthropic.com/v1",
+            "claude-sonnet-4-0",
+            ThinkingStrength::Budget1024
+        )
+        .is_err());
         body["max_tokens"] = json!(4096);
-        apply(&mut body,"claude","https://api.anthropic.com/v1","claude-sonnet-4-0",ThinkingStrength::Budget2048).unwrap();
-        assert_eq!(body["max_tokens"],4096);
-        assert_eq!(body["thinking"],json!({"type":"enabled","budget_tokens":2048}));
+        apply(
+            &mut body,
+            "claude",
+            "https://api.anthropic.com/v1",
+            "claude-sonnet-4-0",
+            ThinkingStrength::Budget2048,
+        )
+        .unwrap();
+        assert_eq!(body["max_tokens"], 4096);
+        assert_eq!(
+            body["thinking"],
+            json!({"type":"enabled","budget_tokens":2048})
+        );
         assert!(body.get("temperature").is_none());
     }
 }

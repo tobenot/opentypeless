@@ -623,7 +623,10 @@ fn build_byok_ask_body_for_config(
     }
 
     crate::llm::thinking::apply(
-        &mut body, &config.llm_provider, &config.llm_base_url, &config.llm_model,
+        &mut body,
+        &config.llm_provider,
+        &config.llm_base_url,
+        &config.llm_model,
         config.llm_thinking_strength,
     )?;
 
@@ -772,8 +775,12 @@ async fn answer_question(
     voice_intent: &VoiceIntent,
 ) -> Result<String, AppError> {
     crate::llm::thinking::validate(
-        &config.llm_provider, &config.llm_base_url, &config.llm_model, config.llm_thinking_strength,
-    ).map_err(AppError::Config)?;
+        &config.llm_provider,
+        &config.llm_base_url,
+        &config.llm_model,
+        config.llm_thinking_strength,
+    )
+    .map_err(AppError::Config)?;
     let llm_api_key = if config.llm_provider == "cloud" {
         String::new()
     } else {
@@ -1888,8 +1895,11 @@ mod tests {
         config.llm_base_url = "https://api.anthropic.com/v1".into();
         config.llm_model = "claude-sonnet-4-0".into();
         config.llm_thinking_strength = ThinkingStrength::Budget1024;
-        assert!(build_byok_ask_body_for_config(&config, "Neutral question?", None)
-            .unwrap_err().contains("must be less than max_tokens"));
+        assert!(
+            build_byok_ask_body_for_config(&config, "Neutral question?", None)
+                .unwrap_err()
+                .contains("must be less than max_tokens")
+        );
         config.llm_thinking_strength = ThinkingStrength::Off;
         let body = build_byok_ask_body_for_config(&config, "Neutral question?", None).unwrap();
         assert_eq!(body["thinking"]["type"], "disabled");

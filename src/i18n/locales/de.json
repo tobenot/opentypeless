@@ -50,7 +50,8 @@
     "output_streaming_partial": "Streaming-Einfügen wurde vorzeitig beendet. Der eingefügte Text wurde beibehalten. {{details}}",
     "llm_failed": "Die KI-Glättung ist fehlgeschlagen. Stattdessen wurde der Originaltext ausgegeben. {{details}}",
     "llm_quota_exceeded": "Das Cloud-KI-Kontingent ist aufgebraucht. Wechseln Sie zu Pro oder in den BYOK-Modus.",
-    "output_wayland_clipboard_copy_only": "In die Zwischenablage kopiert. Auf Wayland bitte manuell einfügen."
+    "output_wayland_clipboard_copy_only": "In die Zwischenablage kopiert. Auf Wayland bitte manuell einfügen.",
+    "llm_thinking_unavailable": "KI-Überarbeitung übersprungen: Anbieter, Modell oder Route unterstützt die gespeicherte Denkstärke nicht. Wählen Sie in Einstellungen → KI → Denkstärke Standard oder einen unterstützten Wert. Beim normalen Diktieren wird das Originaltranskript verwendet."
   },
   "cloudRecovery": {
     "title": "OpenTypeless Cloud ist vorübergehend nicht verfügbar",
@@ -259,7 +260,8 @@
       "audio_failed": "Mikrofehler",
       "output_failed": "Ausgabe-Fehler",
       "unknown": "Fehler",
-      "output_wayland_clipboard_copy_only": "Kopiert"
+      "output_wayland_clipboard_copy_only": "Kopiert",
+      "llm_thinking_unavailable": "Denkstärke: Standard"
     },
     "menu": {
       "hideWhenIdle": "Kapsel im Leerlauf ausblenden",

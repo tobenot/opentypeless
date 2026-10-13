@@ -50,7 +50,8 @@
     "output_streaming_partial": "La inserción en streaming se detuvo antes de tiempo. Se conservó el texto insertado. {{details}}",
     "llm_failed": "Falló el pulido con IA. Se emitió el texto original en su lugar. {{details}}",
     "llm_quota_exceeded": "Se agotó la cuota de IA en la nube. Actualiza a Pro o cambia al modo BYOK.",
-    "output_wayland_clipboard_copy_only": "Copiado al portapapeles. Pega manualmente en Wayland."
+    "output_wayland_clipboard_copy_only": "Copiado al portapapeles. Pega manualmente en Wayland.",
+    "llm_thinking_unavailable": "Se omitió el pulido con IA: el proveedor, modelo o ruta no admite la intensidad de razonamiento guardada. En Ajustes → IA → Intensidad de razonamiento, elige Predeterminado o un valor compatible. El dictado normal usa la transcripción original."
   },
   "cloudRecovery": {
     "title": "OpenTypeless Cloud no está disponible temporalmente",
@@ -259,7 +260,8 @@
       "audio_failed": "Falló micro",
       "output_failed": "Falló salida",
       "unknown": "Error",
-      "output_wayland_clipboard_copy_only": "Copiado"
+      "output_wayland_clipboard_copy_only": "Copiado",
+      "llm_thinking_unavailable": "Razonamiento: predeterminado"
     },
     "menu": {
       "hideWhenIdle": "Ocultar cápsula en reposo",

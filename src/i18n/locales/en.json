@@ -50,7 +50,8 @@
     "output_streaming_partial": "Streaming insert stopped early. The inserted text was kept. {{details}}",
     "llm_failed": "AI polishing failed. The original text was output instead. {{details}}",
     "llm_quota_exceeded": "Cloud AI quota exceeded. Upgrade to Pro or switch to BYOK mode.",
-    "output_wayland_clipboard_copy_only": "Copied to clipboard. Paste manually on Wayland."
+    "output_wayland_clipboard_copy_only": "Copied to clipboard. Paste manually on Wayland.",
+    "llm_thinking_unavailable": "AI cleanup skipped: this provider, model or route does not support the saved thinking strength. In Settings → AI → Thinking strength, choose Default or a supported value. Ordinary dictation falls back to the original transcript."
   },
   "cloudRecovery": {
     "title": "OpenTypeless Cloud is temporarily unavailable",
@@ -259,7 +260,8 @@
       "audio_failed": "Mic failed",
       "output_failed": "Output failed",
       "unknown": "Error",
-      "output_wayland_clipboard_copy_only": "Copied"
+      "output_wayland_clipboard_copy_only": "Copied",
+      "llm_thinking_unavailable": "Thinking: use Default"
     },
     "menu": {
       "hideWhenIdle": "Hide capsule when idle",

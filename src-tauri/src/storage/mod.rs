@@ -2208,7 +2208,10 @@ mod tests {
         use crate::llm::thinking::ThinkingStrength;
         let old = AppConfig::from_stored_value(serde_json::json!({})).unwrap();
         assert_eq!(old.llm_thinking_strength, ThinkingStrength::Default);
-        let mut config = AppConfig { llm_thinking_strength: ThinkingStrength::Off, ..old };
+        let mut config = AppConfig {
+            llm_thinking_strength: ThinkingStrength::Off,
+            ..old
+        };
         let encoded = serde_json::to_value(&config).unwrap();
         assert_eq!(encoded["llm_thinking_strength"], "off");
         let restored = AppConfig::from_stored_value(encoded).unwrap();
