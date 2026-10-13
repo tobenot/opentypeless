@@ -51,7 +51,7 @@
     "llm_failed": "AI 润色失败，已改为输出原始文本。{{details}}",
     "llm_quota_exceeded": "云端 AI 额度已用完。请升级到 Pro 或切换到 BYOK 模式。",
     "output_wayland_clipboard_copy_only": "已复制到剪贴板。Wayland 下需要手动粘贴。",
-    "llm_thinking_unavailable": "已跳过 AI 润色：当前供应商、模型或路由不支持已保存的思考强度。请在设置 → AI → 思考强度中选择“默认”或支持的选项。普通听写会回退到原始识别文本。"
+    "llm_thinking_unavailable": "已跳过 AI 润色：当前供应商、模型或路由不支持已保存的思考强度。请在设置 → AI 润色 → 思考强度中选择“默认”或支持的选项。普通听写会回退到原始识别文本。"
   },
   "cloudRecovery": {
     "title": "OpenTypeless 云服务暂时不可用",

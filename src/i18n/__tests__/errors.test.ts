@@ -74,7 +74,7 @@ describe('localized error messages', () => {
   })
 
   it('explains unsupported thinking recovery without claiming the whole dictation is blocked', () => {
-    expect(en.errors.llm_thinking_unavailable).toContain('Settings → AI → Thinking strength')
+    expect(en.errors.llm_thinking_unavailable).toContain('Settings → AI Polish → Thinking strength')
     expect(en.errors.llm_thinking_unavailable).toContain('Default')
     expect(en.errors.llm_thinking_unavailable).toContain('original transcript')
     expect(zh.errors.llm_thinking_unavailable).toContain('默认')

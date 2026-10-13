@@ -51,7 +51,7 @@
     "llm_failed": "La rifinitura con IA non è riuscita. È stato generato il testo originale. {{details}}",
     "llm_quota_exceeded": "La quota IA cloud è esaurita. Passa a Pro o usa la modalità BYOK.",
     "output_wayland_clipboard_copy_only": "Copiato negli appunti. Incolla manualmente su Wayland.",
-    "llm_thinking_unavailable": "Revisione IA saltata: il provider, il modello o il percorso non supporta l’intensità di ragionamento salvata. In Impostazioni → IA → Intensità di ragionamento, scegli Predefinito o un valore supportato. La dettatura normale usa la trascrizione originale."
+    "llm_thinking_unavailable": "Revisione IA saltata: il provider, il modello o il percorso non supporta l’intensità di ragionamento salvata. In Impostazioni → Rifinitura IA → Intensità del ragionamento, scegli Predefinito o un valore supportato. La dettatura normale usa la trascrizione originale."
   },
   "cloudRecovery": {
     "title": "OpenTypeless Cloud è temporaneamente non disponibile",
