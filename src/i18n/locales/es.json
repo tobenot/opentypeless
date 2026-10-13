@@ -477,7 +477,7 @@
     "dictationMode": "Modo de dictado",
     "thinkingStrength": "Intensidad de razonamiento",
     "thinkingUnsupportedOption": "No disponible",
-    "thinkingUnsupported": "La opción guardada no es compatible. Las solicitudes se bloquean hasta elegir Predeterminado o un valor compatible.",
+    "thinkingUnsupported": "Esta opción no es compatible. No se enviará la solicitud de pulido con IA; el dictado normal puede usar la transcripción original mediante el mecanismo de respaldo existente. Elige Predeterminado o un valor compatible.",
     "thinkingUnavailable": "No hay control verificado para este proveedor, modelo y ruta API. Predeterminado conserva el comportamiento actual.",
     "thinkingDefaultHint": "Predeterminado conserva el comportamiento actual, incluidos los parámetros del proveedor.",
     "thinkingActive": "Esta opción se usará en la revisión de dictados y las preguntas.",

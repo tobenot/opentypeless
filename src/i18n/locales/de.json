@@ -477,7 +477,7 @@
     "dictationMode": "Diktiermodus",
     "thinkingStrength": "Denkintensität",
     "thinkingUnsupportedOption": "Nicht verfügbar",
-    "thinkingUnsupported": "Diese gespeicherte Auswahl wird nicht unterstützt. Anfragen werden bis zur Auswahl von Standard oder einem unterstützten Wert blockiert.",
+    "thinkingUnsupported": "Diese Auswahl wird nicht unterstützt. Es wird keine KI-Überarbeitung angefordert; normales Diktieren kann über den bestehenden Rückfall das Originaltranskript verwenden. Wählen Sie Standard oder einen unterstützten Wert.",
     "thinkingUnavailable": "Keine bestätigte Denksteuerung für diesen Anbieter, dieses Modell und diese API-Route. Standard erhält das bisherige Verhalten.",
     "thinkingDefaultHint": "Standard erhält das bisherige Verhalten einschließlich anbieterspezifischer Parameter.",
     "thinkingActive": "Diese Auswahl gilt für Diktatkorrekturen und Fragen.",

@@ -477,7 +477,7 @@
     "dictationMode": "Modo de ditado",
     "thinkingStrength": "Intensidade de raciocínio",
     "thinkingUnsupportedOption": "Indisponível",
-    "thinkingUnsupported": "A opção salva não é compatível. As solicitações são bloqueadas até escolher Padrão ou um valor compatível.",
+    "thinkingUnsupported": "Esta opção não é suportada. Não será enviado um pedido de revisão por IA; o ditado normal pode usar a transcrição original pelo mecanismo de recuperação existente. Escolha Padrão ou um valor suportado.",
     "thinkingUnavailable": "Não há controle verificado para este provedor, modelo e rota da API. Padrão preserva o comportamento existente.",
     "thinkingDefaultHint": "Padrão preserva o comportamento existente, incluindo os parâmetros do provedor.",
     "thinkingActive": "Esta opção será usada na revisão de ditados e nas perguntas.",

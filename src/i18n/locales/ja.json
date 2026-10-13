@@ -477,7 +477,7 @@
     "dictationMode": "ディクテーションモード",
     "thinkingStrength": "思考の強度",
     "thinkingUnsupportedOption": "利用不可",
-    "thinkingUnsupported": "保存した選択は未対応です。既定または対応する値を選ぶまでリクエストは送信されません。",
+    "thinkingUnsupported": "保存した選択は未対応のため、AI整形リクエストは送信されません。通常の音声入力では既存の代替処理で元の認識テキストを使う場合があります。デフォルトか対応する値を選んでください。",
     "thinkingUnavailable": "このプロバイダー・モデル・API ルートには確認済みの思考制御がありません。既定は従来の動作を維持します。",
     "thinkingDefaultHint": "既定はプロバイダー固有のパラメーターを含む従来の動作を維持します。",
     "thinkingActive": "音声入力の整形と質問にこの設定を使用します。",

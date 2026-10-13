@@ -477,7 +477,7 @@
     "dictationMode": "Mode de dictee",
     "thinkingStrength": "Intensité de réflexion",
     "thinkingUnsupportedOption": "Indisponible",
-    "thinkingUnsupported": "Ce choix enregistré n’est pas pris en charge. Choisissez Par défaut ou une valeur compatible pour envoyer des requêtes.",
+    "thinkingUnsupported": "Ce choix n’est pas pris en charge. Aucune requête de reformulation IA ne sera envoyée ; la dictée ordinaire peut utiliser la transcription originale selon le repli existant. Choisissez Par défaut ou une valeur compatible.",
     "thinkingUnavailable": "Aucun contrôle vérifié pour ce fournisseur, modèle et chemin API. Par défaut conserve le comportement existant.",
     "thinkingDefaultHint": "Par défaut conserve le comportement existant, y compris les paramètres du fournisseur.",
     "thinkingActive": "Ce choix sera appliqué à la révision des dictées et aux questions.",

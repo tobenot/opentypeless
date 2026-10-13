@@ -477,7 +477,7 @@
     "dictationMode": "받아쓰기 모드",
     "thinkingStrength": "사고 강도",
     "thinkingUnsupportedOption": "사용 불가",
-    "thinkingUnsupported": "저장된 선택은 지원되지 않습니다. 기본값 또는 지원되는 값을 선택할 때까지 요청이 차단됩니다.",
+    "thinkingUnsupported": "저장된 선택이 지원되지 않아 AI 다듬기 요청을 보내지 않습니다. 일반 받아쓰기는 기존 대체 처리에 따라 원래 인식 텍스트를 사용할 수 있습니다. 기본값 또는 지원되는 값을 선택하세요.",
     "thinkingUnavailable": "이 제공업체, 모델 및 API 경로에는 검증된 사고 제어가 없습니다. 기본값은 기존 동작을 유지합니다.",
     "thinkingDefaultHint": "기본값은 제공업체별 매개변수를 포함한 기존 동작을 유지합니다.",
     "thinkingActive": "받아쓰기 다듬기와 질문 요청에 이 선택이 적용됩니다.",

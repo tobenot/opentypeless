@@ -477,7 +477,7 @@
     "dictationMode": "听写触发方式",
     "thinkingStrength": "思考强度",
     "thinkingUnsupportedOption": "不可用",
-    "thinkingUnsupported": "已保存的选项不受当前配置支持。请求将被阻止，请选择默认或受支持的值。",
+    "thinkingUnsupported": "已保存的选项不受当前配置支持，不会发送 AI 润色请求；普通听写可能按原有回退机制使用原始识别文本。请选择“默认”或支持的选项。",
     "thinkingUnavailable": "此提供商、模型和 API 路由尚无已验证的思考控制。默认保留原有行为。",
     "thinkingDefaultHint": "默认保留原有行为，包括提供商特定参数。",
     "thinkingActive": "听写润色和提问请求将使用此选项。",

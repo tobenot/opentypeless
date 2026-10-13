@@ -477,7 +477,7 @@
     "dictationMode": "Dictation mode",
     "thinkingStrength": "Thinking strength",
     "thinkingUnsupportedOption": "Unavailable",
-    "thinkingUnsupported": "This saved choice is unsupported here. Requests are blocked until you choose Default or a supported value.",
+    "thinkingUnsupported": "This saved choice is unsupported here. No AI cleanup request will be sent; ordinary dictation may use the original transcript through the existing fallback. Choose Default or a supported value.",
     "thinkingUnavailable": "No verified thinking control for this provider, model and API route. Default preserves existing behavior.",
     "thinkingDefaultHint": "Default preserves existing behavior, including provider-specific parameters.",
     "thinkingActive": "This choice will be sent with dictation cleanup and Ask requests.",

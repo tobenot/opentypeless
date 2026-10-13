@@ -477,7 +477,7 @@
     "dictationMode": "Modalita dettatura",
     "thinkingStrength": "Intensità del ragionamento",
     "thinkingUnsupportedOption": "Non disponibile",
-    "thinkingUnsupported": "La scelta salvata non è supportata. Le richieste sono bloccate finché non scegli Predefinito o un valore supportato.",
+    "thinkingUnsupported": "Questa scelta non è supportata. Non verrà inviata una richiesta di revisione IA; la dettatura normale può usare la trascrizione originale tramite il meccanismo di ripiego esistente. Scegli Predefinito o un valore supportato.",
     "thinkingUnavailable": "Nessun controllo verificato per questo fornitore, modello e percorso API. Predefinito mantiene il comportamento esistente.",
     "thinkingDefaultHint": "Predefinito mantiene il comportamento esistente, inclusi i parametri del fornitore.",
     "thinkingActive": "Questa scelta verrà usata per la revisione della dettatura e le domande.",

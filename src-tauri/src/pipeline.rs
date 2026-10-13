@@ -3691,6 +3691,27 @@ mod tests {
     }
 
     #[test]
+    fn thinking_config_error_reaches_the_runtime_capsule_without_private_config() {
+        let reason = llm::thinking::validate(
+            "custom",
+            "https://private.invalid/v1",
+            "private-model",
+            llm::thinking::ThinkingStrength::High,
+        )
+        .unwrap_err();
+        let error = llm_polish_user_error(&crate::error::AppError::Config(reason));
+        assert_eq!(error.code, "llm_thinking_unavailable");
+        assert_eq!(error.retry_count, 0);
+        let payload = serde_json::to_value(error).unwrap();
+        assert!(payload["details"]
+            .as_str()
+            .unwrap()
+            .contains("Choose Default"));
+        assert!(!payload.to_string().contains("private.invalid"));
+        assert!(!payload.to_string().contains("private-model"));
+    }
+
+    #[test]
     fn llm_polish_user_error_keeps_quota_code() {
         let err = llm_polish_user_error(&crate::error::AppError::LlmQuota(
             "quota exceeded".to_string(),
