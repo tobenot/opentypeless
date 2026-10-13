@@ -2243,6 +2243,7 @@ impl PipelineHandle {
             base_url: config.llm_base_url.clone(),
             max_tokens: 4096,
             temperature: 0.3,
+            thinking_strength: config.llm_thinking_strength,
         };
         let provider = llm::create_provider(&config.llm_provider, Some(self.shared_client.clone()));
 

@@ -472,7 +472,26 @@
     "mappingResetConfirm": "Excluir todas as associações de aplicativos salvas apenas neste dispositivo?",
     "mappingResetConfirmAction": "Redefinir associações",
     "mappingNoMappings": "Nenhuma associação personalizada de aplicativo",
-    "dictationMode": "Modo de ditado"
+    "dictationMode": "Modo de ditado",
+    "thinkingStrength": "Intensidade de raciocínio",
+    "thinkingUnsupportedOption": "Indisponível",
+    "thinkingUnsupported": "A opção salva não é compatível. As solicitações são bloqueadas até escolher Padrão ou um valor compatível.",
+    "thinkingUnavailable": "Não há controle verificado para este provedor, modelo e rota da API. Padrão preserva o comportamento existente.",
+    "thinkingDefaultHint": "Padrão preserva o comportamento existente, incluindo os parâmetros do provedor.",
+    "thinkingActive": "Esta opção será usada na revisão de ditados e nas perguntas.",
+    "thinkingHint": "Níveis iguais não garantem os mesmos tokens ou latência entre provedores. Os orçamentos manuais compartilham o limite de saída existente. Os testes verificam apenas a conexão.",
+    "thinkingOptions": {
+      "default": "Padrão",
+      "off": "Desativado",
+      "minimal": "Mínimo",
+      "low": "Baixo",
+      "medium": "Médio",
+      "high": "Alto",
+      "xhigh": "Muito alto",
+      "max": "Máximo",
+      "budget_1024": "1,024 tokens",
+      "budget_2048": "2,048 tokens"
+    }
   },
   "contextFamilies": {
     "email": "E-mail",

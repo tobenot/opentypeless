@@ -98,6 +98,11 @@ impl LlmProvider for OpenAiProvider {
             }
         }
 
+        super::thinking::apply(
+            &mut body, &config.provider, &config.base_url, &config.model,
+            config.thinking_strength,
+        ).map_err(AppError::Config)?;
+
         // Retry the initial connection (not once streaming starts)
         #[allow(unused_assignments)]
         let mut response = None;

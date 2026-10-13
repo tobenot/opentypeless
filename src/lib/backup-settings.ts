@@ -1,3 +1,4 @@
+import { isThinkingStrength } from './thinking'
 import type {
   ActiveScene,
   AppConfig,
@@ -21,6 +22,7 @@ type SafeScalarKey =
   | 'llm_provider'
   | 'llm_model'
   | 'llm_base_url'
+  | 'llm_thinking_strength'
   | 'polish_enabled'
   | 'context_adaptation_enabled'
   | 'polish_style'
@@ -81,6 +83,7 @@ export function createBackupSettings(config: AppConfig): BackupSettings {
     llm_provider: config.llm_provider,
     llm_model: config.llm_model,
     llm_base_url: config.llm_base_url,
+    llm_thinking_strength: config.llm_thinking_strength,
     polish_enabled: config.polish_enabled,
     context_adaptation_enabled: config.context_adaptation_enabled,
     polish_style: config.polish_style,
@@ -204,6 +207,7 @@ const SAFE_SCALAR_KEYS: readonly SafeScalarKey[] = [
   'llm_provider',
   'llm_model',
   'llm_base_url',
+  'llm_thinking_strength',
   'polish_enabled',
   'context_adaptation_enabled',
   'polish_style',
@@ -246,6 +250,10 @@ export function mergeBackupSettings(current: AppConfig, backup: unknown): AppCon
   const writable = next as unknown as Record<string, unknown>
   for (const key of SAFE_SCALAR_KEYS) {
     const incoming = backup[key]
+    if (key === 'llm_thinking_strength') {
+      if (isThinkingStrength(incoming)) next.llm_thinking_strength = incoming
+      continue
+    }
     if (typeof incoming === typeof current[key]) writable[key] = incoming
   }
 

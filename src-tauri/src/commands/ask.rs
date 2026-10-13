@@ -622,6 +622,11 @@ fn build_byok_ask_body_for_config(
         }
     }
 
+    crate::llm::thinking::apply(
+        &mut body, &config.llm_provider, &config.llm_base_url, &config.llm_model,
+        config.llm_thinking_strength,
+    )?;
+
     Ok(body)
 }
 
@@ -766,6 +771,9 @@ async fn answer_question(
     operation_id: Option<&str>,
     voice_intent: &VoiceIntent,
 ) -> Result<String, AppError> {
+    crate::llm::thinking::validate(
+        &config.llm_provider, &config.llm_base_url, &config.llm_model, config.llm_thinking_strength,
+    ).map_err(AppError::Config)?;
     let llm_api_key = if config.llm_provider == "cloud" {
         String::new()
     } else {

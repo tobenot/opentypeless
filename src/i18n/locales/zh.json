@@ -472,7 +472,26 @@
     "mappingResetConfirm": "删除所有仅保存在本机的应用映射？",
     "mappingResetConfirmAction": "重置映射",
     "mappingNoMappings": "暂无自定义应用映射",
-    "dictationMode": "听写触发方式"
+    "dictationMode": "听写触发方式",
+    "thinkingStrength": "思考强度",
+    "thinkingUnsupportedOption": "不可用",
+    "thinkingUnsupported": "已保存的选项不受当前配置支持。请求将被阻止，请选择默认或受支持的值。",
+    "thinkingUnavailable": "此提供商、模型和 API 路由尚无已验证的思考控制。默认保留原有行为。",
+    "thinkingDefaultHint": "默认保留原有行为，包括提供商特定参数。",
+    "thinkingActive": "听写润色和提问请求将使用此选项。",
+    "thinkingHint": "不同提供商的同名档位不代表相同 token 用量或延迟。手动预算共用现有输出上限。连接测试仅检查连通性。",
+    "thinkingOptions": {
+      "default": "默认",
+      "off": "关闭",
+      "minimal": "最少",
+      "low": "低",
+      "medium": "中",
+      "high": "高",
+      "xhigh": "极高",
+      "max": "最大",
+      "budget_1024": "1,024 tokens",
+      "budget_2048": "2,048 tokens"
+    }
   },
   "contextFamilies": {
     "email": "邮件",

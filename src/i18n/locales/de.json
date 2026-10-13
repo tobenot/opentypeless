@@ -472,7 +472,26 @@
     "mappingResetConfirm": "Alle nur auf diesem Gerät gespeicherten App-Zuordnungen löschen?",
     "mappingResetConfirmAction": "Zuordnungen zurücksetzen",
     "mappingNoMappings": "Keine eigenen App-Zuordnungen",
-    "dictationMode": "Diktiermodus"
+    "dictationMode": "Diktiermodus",
+    "thinkingStrength": "Denkintensität",
+    "thinkingUnsupportedOption": "Nicht verfügbar",
+    "thinkingUnsupported": "Diese gespeicherte Auswahl wird nicht unterstützt. Anfragen werden bis zur Auswahl von Standard oder einem unterstützten Wert blockiert.",
+    "thinkingUnavailable": "Keine bestätigte Denksteuerung für diesen Anbieter, dieses Modell und diese API-Route. Standard erhält das bisherige Verhalten.",
+    "thinkingDefaultHint": "Standard erhält das bisherige Verhalten einschließlich anbieterspezifischer Parameter.",
+    "thinkingActive": "Diese Auswahl gilt für Diktatkorrekturen und Fragen.",
+    "thinkingHint": "Gleiche Stufen bedeuten nicht gleiche Token-Nutzung oder Latenz bei allen Anbietern. Manuelle Budgets teilen das vorhandene Ausgabelimit. Verbindungstests prüfen nur die Verbindung.",
+    "thinkingOptions": {
+      "default": "Standard",
+      "off": "Aus",
+      "minimal": "Minimal",
+      "low": "Niedrig",
+      "medium": "Mittel",
+      "high": "Hoch",
+      "xhigh": "Sehr hoch",
+      "max": "Maximum",
+      "budget_1024": "1,024 tokens",
+      "budget_2048": "2,048 tokens"
+    }
   },
   "contextFamilies": {
     "email": "E-Mail",
