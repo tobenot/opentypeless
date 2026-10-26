@@ -1,6 +1,6 @@
 # Provider-aware thinking controls
 
-Status: private incremental candidate on the accepted A+B bugfix base. Provider documentation checked 2026-10-13. This is an explicit allow-list, not an assertion that all models from these providers are supported.
+This feature builds on the final-output/SSE changes proposed in PR #151. The capability registry records its 2026-10-13 documentation baseline. Core provider guides were rechecked on 2026-10-26; the allow-list is deliberately finite and is not a claim of exhaustive model support or live endpoint acceptance.
 
 ## Behavior
 
@@ -45,7 +45,7 @@ Only the routes already implemented by OpenTypeless are used. DeepSeek's Anthrop
 
 ## Validation boundary
 
-The standalone private harness is designed to compile exact production provider/protocol/output/SSE/thinking modules and real AppConfig schema/default/normalization excerpts. Neutral loopback fixtures capture the actual serialized production request. Supported-route fixtures use HTTPS with a test-only certificate trusted by that client and DNS resolved to a loopback listener; production origin checks are not weakened for tests. There are no real API credentials, paid requests or system trust changes.
+The standalone source harness is designed to compile exact production provider/protocol/output/SSE/thinking modules and real AppConfig schema/default/normalization excerpts. Neutral loopback fixtures capture the actual serialized production request. Supported-route fixtures use HTTPS with a test-only certificate trusted by that client and DNS resolved to a loopback listener; production origin checks are not weakened for tests. There are no real API credentials, paid requests or system trust changes.
 
 AppConfig JSON file round trips are distinct from Tauri Store integration. The harness omits desktop adapters, the full pipeline, Tauri settings I/O and managed-cloud provider execution. Full application, Windows, live API, end-to-end insertion/history and a human UI experience are not established by these tests. Check the accompanying run logs for which stages actually ran; a prepared harness is not a test pass.
 
